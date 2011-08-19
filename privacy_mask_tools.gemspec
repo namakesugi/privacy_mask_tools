@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["namakesugi"]
   s.email       = ["info@namakesugi.net"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{privacy data masking tools for japanese}
+  s.description = %q{Included methods "has_mobile_number?", "mobile_number_masking"}
 
   s.rubyforge_project = "privacy_mask_tools"
 
@@ -17,4 +17,7 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
+
+  s.add_development_dependency 'rspec', '~> 2.6.0'
 end
+
