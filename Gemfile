@@ -6,7 +6,6 @@ gemspec
 group :development, :test do
   gem 'yard'
   gem 'rdiscount'
-  gem 'tapp'
   gem 'guard-rspec', require: false
   gem 'libnotify',   require: false
   gem 'rb-inotify',  require: false

@@ -19,5 +19,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_development_dependency 'rspec', '~> 2.6.0'
+  s.add_development_dependency 'tapp', '~> 1.0.0'
 end
 
