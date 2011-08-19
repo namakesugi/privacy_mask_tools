@@ -1,4 +1,5 @@
 module PrivacyMaskTools
-  VERSION = "0.1.1"
+  # VERSION Number
+  VERSION = "0.1.2"
 end
 

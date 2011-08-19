@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.7.2
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html" title="Index">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><div id='filecontents'><h1>PrivacyMaskTools</h1>
+
+<p>個人情報らしきものを判定・マスキングします</p>
+
+<h2>install</h2>
+
+<pre class="code"><span class='id gem'>gem</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>privacy_mask_tools</span><span class='tstring_end'>'</span></span></pre>
+
+
+<h2>How to use</h2>
+
+<pre class="code"><span class='const'>PrivacyMaskTools</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id has_mobile_number?'>has_mobile_number?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>090-1234-5678</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='comment'># =&gt; true
+</span><span class='const'>PrivacyMaskTools</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id mobile_number_masking'>mobile_number_masking</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>私の携帯電話番号は 090-1234-5678 です</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='comment'># =&gt; &quot;私の携帯電話番号は ***-****-**** です&quot;
+</span></pre>
+
+
+<h2>You can include PrivacyMaskTools methods in your object</h2>
+
+<p>in your object</p>
+
+<pre class="code"><span class='kw'>class</span> <span class='const'>Obj</span>
+  <span class='id include'>include</span> <span class='const'>PrivacyMaskTools</span><span class='op'>::</span><span class='const'>Matcher</span>
+  <span class='comment'># ... todo something
+</span><span class='kw'>end</span></pre>
+
+
+
+
+<pre class="code"><span class='id x'>x</span> <span class='op'>=</span> <span class='const'>Obj</span><span class='period'>.</span><span class='id new'>new</span>
+<span class='id x'>x</span><span class='period'>.</span><span class='id mobile_number_masking'>mobile_number_masking</span></pre>
+
+
+<h2>Copyright</h2>
+
+<p>Copyright (c) 2011 NAMAKESUGI, released under the MIT license</p>
+</div></div>
+    
+    <div id="footer">
+  Generated on Sat Aug 20 06:22:44 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>

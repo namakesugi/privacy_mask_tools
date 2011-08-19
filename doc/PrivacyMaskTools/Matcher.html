@@ -1,0 +1,515 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: PrivacyMaskTools::Matcher
+  
+    &mdash; Documentation by YARD 0.7.2
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (M)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../PrivacyMaskTools.html" title="PrivacyMaskTools (module)">PrivacyMaskTools</a></span></span>
+     &raquo; 
+    <span class="title">Matcher</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: PrivacyMaskTools::Matcher
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="Base.html" title="PrivacyMaskTools::Base (class)">Base</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/privacy_mask_tools/matcher.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="MOBILE_NUMBER_REGEXP-constant" class="">MOBILE_NUMBER_REGEXP =
+          <div class="docstring">
+  <div class="discussion">
+    <p>
+携帯番号ソフト判定用正規表現
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(([0０][7-9７-９][0０])[-ー)(（） 　]*([0-9０-９]{4})[-ー)(（） 　]*([0-9０-９]{4})(?![0-9０-９]))</span><span class='regexp_end'>/</span></span></pre></dd>
+      
+        <dt id="JARGON_MOBILE_NUMBER_REGEXP-constant" class="">JARGON_MOBILE_NUMBER_REGEXP =
+          <div class="docstring">
+  <div class="discussion">
+    <p>
+携帯番号ハード判定用正規表現(丸付数字等も含める)
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(([0０oO〇十]?[7-9７-９⑦⑧⑨][0０十〇])[-ー)(（） 　]*([0-9０-９oO①②③④⑤⑥⑦⑧⑨一二三四五六七八九十〇壱弐参]{4})[-ー)(（） 　]*([0-9０-９oO①②③④⑤⑥⑦⑧⑨一二三四五六七八九十〇壱弐参]{4})(?![0-9０-９]))</span><span class='regexp_end'>/</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#has_jargon_mobile_number%3F-instance_method" title="#has_jargon_mobile_number? (instance method)">- (Boolean) <strong>has_jargon_mobile_number?</strong>(text) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+携帯番号が含まれているかチェックします.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#has_mobile_number%3F-instance_method" title="#has_mobile_number? (instance method)">- (Boolean) <strong>has_mobile_number?</strong>(text, jargon = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+携帯番号が含まれているかチェックします.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mobile_number_masking-instance_method" title="#mobile_number_masking (instance method)">- (String) <strong>mobile_number_masking</strong>(text, sub = &quot;*&quot;, jargon = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+携帯番号らしき箇所をマスキングします.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="has_jargon_mobile_number?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>has_jargon_mobile_number?</strong>(text) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+携帯番号が含まれているかチェックします
+</p>
+<pre class="code">
+  <span class='id 隠語らしきものも判定します'>隠語らしきものも判定します</span>
+  <span class='id そのため正常な文字列も置換する確率が高くなります'>そのため正常な文字列も置換する確率が高くなります</span>
+  <span class='id 現時点ではテストが不十分です'>現時点ではテストが不十分です</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>チェック対象の文字列</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+含まれている場合 true 含まれていない場合 false
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/privacy_mask_tools/matcher.rb', line 30</span>
+
+<span class='kw'>def</span> <span class='id has_jargon_mobile_number?'>has_jargon_mobile_number?</span><span class='lparen'>(</span><span class='id text'>text</span><span class='rparen'>)</span>
+  <span class='id has_mobile_number?'>has_mobile_number?</span><span class='lparen'>(</span><span class='id text'>text</span><span class='comma'>,</span><span class='kw'>true</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="has_mobile_number?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>has_mobile_number?</strong>(text, jargon = false) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+携帯番号が含まれているかチェックします
+</p>
+<pre class="code">
+  <span class='id 隠語判定はソフトで、半角全角の携帯番号らしきものはtrueを返します'>隠語判定はソフトで、半角全角の携帯番号らしきものはtrueを返します</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>チェック対象の文字列</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>隠語判定強化フラグ(漢数字・丸付き数値にもマッチ)</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+含まれている場合 true 含まれていない場合 false
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17
+18
+19
+20</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/privacy_mask_tools/matcher.rb', line 17</span>
+
+<span class='kw'>def</span> <span class='id has_mobile_number?'>has_mobile_number?</span><span class='lparen'>(</span><span class='id text'>text</span><span class='comma'>,</span> <span class='id jargon'>jargon</span><span class='op'>=</span><span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='id reg'>reg</span> <span class='op'>=</span> <span class='id jargon'>jargon</span> <span class='op'>?</span> <span class='const'>JARGON_MOBILE_NUMBER_REGEXP</span> <span class='op'>:</span> <span class='const'>MOBILE_NUMBER_REGEXP</span>
+  <span class='op'>!</span><span class='id text'>text</span><span class='period'>.</span><span class='id match'>match</span><span class='lparen'>(</span><span class='id reg'>reg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="mobile_number_masking-instance_method">
+  
+    - (<tt>String</tt>) <strong>mobile_number_masking</strong>(text, sub = &quot;*&quot;, jargon = false) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+携帯番号らしき箇所をマスキングします
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='id mobile_number_masking'>mobile_number_masking</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>携帯番号 : 090-1234-5678</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='comment'># =&gt; &quot;携帯番号 : xxx-xxxx-xxxx&quot;</span></pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>マスキング対象の文字列</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>マッチした部分の置換文字</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>隠語判定を強化フラグ</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+マスキング後の文字列
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/privacy_mask_tools/matcher.rb', line 42</span>
+
+<span class='kw'>def</span> <span class='id mobile_number_masking'>mobile_number_masking</span><span class='lparen'>(</span><span class='id text'>text</span><span class='comma'>,</span> <span class='id sub'>sub</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id jargon'>jargon</span><span class='op'>=</span><span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='id reg'>reg</span> <span class='op'>=</span> <span class='id jargon'>jargon</span> <span class='op'>?</span> <span class='const'>JARGON_MOBILE_NUMBER_REGEXP</span> <span class='op'>:</span> <span class='const'>MOBILE_NUMBER_REGEXP</span>
+  <span class='id text'>text</span><span class='period'>.</span><span class='id scan'>scan</span><span class='lparen'>(</span><span class='id reg'>reg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id f'>f</span><span class='op'>|</span>
+    <span class='id replace_word'>replace_word</span> <span class='op'>=</span> <span class='id f'>f</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id dup'>dup</span>
+    <span class='id f'>f</span><span class='period'>.</span><span class='id each_with_index'>each_with_index</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id g'>g</span><span class='comma'>,</span> <span class='id index'>index</span><span class='op'>|</span>
+      <span class='kw'>next</span> <span class='kw'>if</span> <span class='id index'>index</span> <span class='op'>==</span> <span class='int'>0</span>
+      <span class='id replace_word'>replace_word</span><span class='period'>.</span><span class='id sub!'>sub!</span><span class='lparen'>(</span><span class='id g'>g</span><span class='comma'>,</span> <span class='id sub'>sub</span><span class='op'>*</span><span class='id g'>g</span><span class='period'>.</span><span class='id size'>size</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+    <span class='id text'>text</span> <span class='op'>=</span> <span class='id text'>text</span><span class='period'>.</span><span class='id sub'>sub</span><span class='lparen'>(</span><span class='id f'>f</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id replace_word'>replace_word</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='id text'>text</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Aug 20 06:22:44 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>

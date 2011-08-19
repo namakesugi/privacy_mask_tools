@@ -16,7 +16,7 @@ end
 require 'yard'
 require 'yard/rake/yardoc_task'
 YARD::Rake::YardocTask.new do |t|
-  t.files   = ['lib/forgery_ja/**/*.rb']
+  t.files   = ['lib/privacy_mask_tools/**/*.rb']
   t.options = []
   t.options << '--debug' << '--verbose' if $trace
 end
