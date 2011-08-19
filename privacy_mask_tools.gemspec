@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = PrivacyMaskTools::VERSION
   s.authors     = ["namakesugi"]
   s.email       = ["info@namakesugi.net"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/namakesugi/privacy_mask_tools"
   s.summary     = %q{privacy data masking tools for japanese}
   s.description = %q{Included methods "has_mobile_number?", "mobile_number_masking"}
 
