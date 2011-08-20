@@ -29,7 +29,7 @@ describe PrivacyMaskTools::Matcher do
       end
       context "スペースが含まれる場合" do
         it { matcher.has_mobile_number?("080  7600 0000").should be_true }
-        it { matcher.has_mobile_number?("080　(7600)　0000").should be_true }
+        it { matcher.has_mobile_number?("080　　(7600)　0000").should be_true }
       end
       context "全角数字が含まれている場合" do
         it { matcher.has_mobile_number?("０８０７６３４５６７８").should be_true }
@@ -56,11 +56,15 @@ describe PrivacyMaskTools::Matcher do
   end
 
   describe ".has_phone_number?" do
+    context "携帯番号の場合" do
+      it { matcher.has_phone_number?("070-0000-0000").should be_false }
+      it { matcher.has_phone_number?("080-0000-0000").should be_false }
+      it { matcher.has_phone_number?("090-0000-0000").should be_false }
+    end
     context "([0０][3３4４6６])[-ー()（）・ 　]*([0-9０-９]{4})の場合" do
       it { matcher.has_phone_number?("03-0000-1234").should be_true }
       it { matcher.has_phone_number?("０４-００００ー１２３４").should be_true }
       it { matcher.has_phone_number?("0600000000").should be_true }
-      it { matcher.has_phone_number?("080-7900-0000").should be_false }
     end
     context "([0０][1-9１-９]{2})[-ー()（）・ 　]*([0-9０-９]{4})の場合" do
       it { matcher.has_phone_number?("011-000ー0000").should be_true }
@@ -77,6 +81,11 @@ describe PrivacyMaskTools::Matcher do
       it { matcher.has_phone_number?("01100-0-0000").should be_true }
       it { matcher.has_phone_number?("０９９９９ー９ー９９９９").should be_true }
       it { matcher.has_phone_number?("01９0９00000").should be_true }
+    end
+    context "IP電話の場合('([0０][5５][0０])[-ー()（）・ 　]*(0-9０-９)')の場合" do
+      it { matcher.has_phone_number?("050-0000-0000").should be_true }
+      it { matcher.has_phone_number?("０５０００００００００").should be_true }
+      it { matcher.has_phone_number?("０5０（０00０)9９9９").should be_true }
     end
   end
 
