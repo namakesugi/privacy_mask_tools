@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.email       = ["info@namakesugi.net"]
   s.homepage    = "https://github.com/namakesugi/privacy_mask_tools"
   s.summary     = %q{privacy data masking tools for japanese}
-  s.description = %q{Included methods "has_mobile_number?", "mobile_number_masking"}
+  s.description = %q{this module can find privacy data from text data. Try PrivacyMaskTools::Base.has_mobile_number?("<Text Data>")}
 
   s.rubyforge_project = "privacy_mask_tools"
 
