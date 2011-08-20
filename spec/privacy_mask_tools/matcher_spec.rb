@@ -52,6 +52,7 @@ describe PrivacyMaskTools::Matcher do
   describe ".has_jargon_mobile_number?" do
     context "漢数字・丸付き数字・o等が含まれている場合" do
       it { matcher.has_jargon_mobile_number?("0⑧0-1②参四-oO十〇").should be_true }
+      it { matcher.has_jargon_mobile_number?("〇九O-①②③④-⑤⑥⑦⑧").should be_true }
     end
   end
 
