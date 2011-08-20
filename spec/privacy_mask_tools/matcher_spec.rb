@@ -61,6 +61,19 @@ describe PrivacyMaskTools::Matcher do
       it { matcher.has_phone_number?("080-0000-0000").should be_false }
       it { matcher.has_phone_number?("090-0000-0000").should be_false }
     end
+    context "マッチしない場合" do
+      context "最後の数値パターンの末尾に数値が含まれている場合" do
+        it { matcher.has_phone_number?("(0１9)000-00000").should be_false }
+        it { matcher.has_phone_number?("019000-９９９９９").should be_false }
+      end
+      context "桁数が不足している場合" do
+        it { matcher.has_phone_number?("011-000-000").should be_false }
+      end
+      context "加入者番号の桁に数値・指定された記号以外が混入している場合" do
+        it { matcher.has_phone_number?("011-000<0000>").should be_false }
+        it { matcher.has_phone_number?("011-000-a0000").should be_false }
+      end
+    end
     context "([0０][3３4４6６])[-ー()（）・ 　]*([0-9０-９]{4})の場合" do
       it { matcher.has_phone_number?("03-0000-1234").should be_true }
       it { matcher.has_phone_number?("０４-００００ー１２３４").should be_true }
@@ -70,7 +83,6 @@ describe PrivacyMaskTools::Matcher do
       it { matcher.has_phone_number?("011-000ー0000").should be_true }
       it { matcher.has_phone_number?("０９９-９９９ー００００").should be_true }
       it { matcher.has_phone_number?("0１90000000").should be_true }
-      it { matcher.has_phone_number?("(0１9)000-00000").should be_false }
     end
     context "([0０][1-9１-９]{2}[0-9０-９])[-ー()（）・ 　]*([0-9０-９]{2}の場合" do
       it { matcher.has_phone_number?("0110-00-0000").should be_true }
