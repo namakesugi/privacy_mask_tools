@@ -1,5 +1,6 @@
+# VERSION NUMBER
 module PrivacyMaskTools
-  # VERSION Number
-  VERSION = "0.1.2"
+  # Setted Version Number
+  VERSION = "0.1.3"
 end
 
