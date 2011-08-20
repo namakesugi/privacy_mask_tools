@@ -99,6 +99,10 @@ describe PrivacyMaskTools::Matcher do
       it { matcher.has_jargon_phone_number?("〇六-弐参oO-弐参oO").should be_true }
       it { matcher.has_jargon_phone_number?("〇⑥１１１１１１１１").should be_true }
     end
+    context "IP電話の場合('([0０oO〇十][5５五⑤][0０oO〇十])[-ー()（）・ 　]*([0-9０-９oO①-⑨一-四〇壱弐参]{4})')" do
+      it { matcher.has_jargon_phone_number?("o五o-①②③④-0000").should be_true }
+      it { matcher.has_jargon_phone_number?("O⑤O-⑤⑥⑦⑧-0000").should be_true }
+    end
     # TODO more test
   end
 
