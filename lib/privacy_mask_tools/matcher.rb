@@ -52,7 +52,7 @@ module PrivacyMaskTools::Matcher
   #   含まれていない場合 false
   def has_phone_number?(text, jargon=false)
     reg = jargon ? JARGON_PHONE_NUMBER_REGEXP : PHONE_NUMBER_REGEXP
-    !text.match(reg).tapp.nil?
+    !text.match(reg).nil?
   end
 
   # 固定電話番号が含まれているかチェックします
@@ -105,7 +105,7 @@ module PrivacyMaskTools::Matcher
   # @return [String] マスキング後の文字列
   def phone_nomber_masking(text, word="*", jargon=false)
     reg = jargon ? JARGON_PHONE_NUMBER_REGEXP : PHONE_NUMBER_REGEXP
-    text.scan(reg).tapp.each do |f|
+    text.scan(reg).each do |f|
       if word.size >= 2
         text = text.sub(f[0], word)
       else
