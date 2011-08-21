@@ -5,7 +5,7 @@
 #   PrivacyMaskTools::Base.mobile_number_masking("#{target_text}")
 class PrivacyMaskTools::Base
   class << self
-    include PrivacyMaskTools::Matcher
+    include PrivacyMaskTools::PhoneMatcher
   end
 end
 
