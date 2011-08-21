@@ -12,18 +12,41 @@
 # => true
 PrivacyMaskTools::Base.mobile_number_masking("私の携帯電話番号は 090-1234-5678 です")
 # => "私の携帯電話番号は ***-****-**** です"
+PrivacyMaskTools::Base.pick_mobile_number("私の携帯電話番号は 090-1234-5678 です")
+# => ["090-1234-5678"]
 </code></pre>
+
+## Module Infomation
+
+### PrivacyMaskTools::PhoneMatcher
+
+* has_mobile_number?
+* has_phone_number?
+* mobile_number_masking
+* phone_nomber_masking
+* pick_mobile_number
+* pick_phone_number
+
+### PrivacyMaskTools::EmailMatcher
+
+* has_rfc_email?("<text data>") # => return true or false
+* pick_rfc_email("<text data>") # => return Array
+* rfc_email_masking("<text data>", "<masking words>") # => return masked text_data
 
 ## You can include PrivacyMaskTools methods in your object
 
 in your object
 <pre><code>class Obj
-  include PrivacyMaskTools::Matcher
+  include PrivacyMaskTools::PhoneMatcher
+  include PrivacyMaskTools::EmailMatcher
   # ... todo something
 end</code></pre>
 
 <pre><code>x = Obj.new
-x.mobile_number_masking</code></pre>
+x.has_mobile_number?("080-0000-0000")
+# => true
+x.has_rfc_email?("xxxx@example.com")
+# => true</code></pre>
 
 ## Note on Patches/Pull Requests
 
