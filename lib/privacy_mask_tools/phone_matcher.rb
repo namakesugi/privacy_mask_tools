@@ -120,11 +120,19 @@ module PrivacyMaskTools::PhoneMatcher
     text
   end
 
+  # text中に含まれる固定電話番号を抽出します
+  # @param [String] 探索対象文字列
+  # @param [Boolean] Jargonモードを利用するか
+  # @return [Array]
   def pick_phone_number(text, jargon=false)
     reg = jargon ? JARGON_PHONE_NUMBER_REGEXP : PHONE_NUMBER_REGEXP
     [].tap { |o| text.scan(reg).each { |f| o << f[0] } }
   end
 
+  # text中に含まれる携帯番号を抽出します
+  # @param [String] 探索対象文字列
+  # @param [Boolean] Jargonモードを利用するか
+  # @return [Array]
   def pick_mobile_number(text, jargon=false)
     reg = jargon ? JARGON_MOBILE_NUMBER_REGEXP : MOBILE_NUMBER_REGEXP
     [].tap { |o| text.scan(reg).each { |f| o << f[0] } }
