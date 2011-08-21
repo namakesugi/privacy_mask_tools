@@ -120,5 +120,14 @@ module PrivacyMaskTools::PhoneMatcher
     text
   end
 
+  def pick_phone_number(text, jargon=false)
+    reg = jargon ? JARGON_PHONE_NUMBER_REGEXP : PHONE_NUMBER_REGEXP
+    [].tap { |o| text.scan(reg).each { |f| o << f[0] } }
+  end
+
+  def pick_mobile_number(text, jargon=false)
+    reg = jargon ? JARGON_MOBILE_NUMBER_REGEXP : MOBILE_NUMBER_REGEXP
+    [].tap { |o| text.scan(reg).each { |f| o << f[0] } }
+  end
 end
 

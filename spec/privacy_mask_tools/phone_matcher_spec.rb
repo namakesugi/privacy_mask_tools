@@ -139,5 +139,45 @@ describe PrivacyMaskTools::PhoneMatcher do
       it { matcher.phone_nomber_masking("これが私の番号です\r\n ０３・００００・９９９９", "No").should eql "これが私の番号です\r\n No" }
     end
   end
+
+  describe ".pick_mobile_number" do
+    context "携帯番号が1つ含まれる場合" do
+      subject { matcher.pick_mobile_number("090-0000-0000です\r\nこれが私の番号です ０３・００００・９９９９") }
+      its(:size) { should eql 1 }
+      its([0]) { should eql "090-0000-0000" }
+    end
+    context "携帯番号が2つ以上含まれる場合" do
+      subject { matcher.pick_mobile_number("090-0000-0000です\r\nこれが私の番号です ０９０・００００・９９９９") }
+      its(:size) { should eql 2 }
+      its([0]) { should eql "090-0000-0000" }
+      its([1]) { should eql "０９０・００００・９９９９" }
+    end
+    context "jargonモードを有効にした場合" do
+      subject { matcher.pick_mobile_number("0⑨0-〇①②③-0000です\r\nこれが私の番号です ０９０・００００・９９９９", true) }
+      its(:size) { should eql 2 }
+      its([0]) { should eql "0⑨0-〇①②③-0000" }
+      its([1]) { should eql "０９０・００００・９９９９" }
+    end
+  end
+
+  describe ".pick_phone_number" do
+    context "電話番号が1つ含まれる場合" do
+      subject { matcher.pick_phone_number("090-0000-0000です\r\nこれが私の番号です ０３・００００・９９９９") }
+      its(:size) { should eql 1 }
+      its([0]) { should eql "０３・００００・９９９９" }
+    end
+    context "電話番号が2つ以上含まれる場合" do
+      subject { matcher.pick_phone_number("03-0000-0000です\r\nこれが私の番号です ０3・００００・９９９９\r\n０3０・００００・９９９９") }
+      its(:size) { should eql 2 }
+      its([0]) { should eql "03-0000-0000" }
+      its([1]) { should eql "０3・００００・９９９９" }
+    end
+    context "jargonモードを有効にした場合" do
+      subject { matcher.pick_phone_number("〇参-0000-0000です\r\nこれが私の番号です ０3・００００・９９９９\r\n０3０・００００・９９９９", true) }
+      its(:size) { should eql 2 }
+      its([0]) { should eql "〇参-0000-0000" }
+      its([1]) { should eql "０3・００００・９９９９" }
+    end
+  end
 end
 
