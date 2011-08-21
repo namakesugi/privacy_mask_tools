@@ -24,5 +24,23 @@ describe PrivacyMaskTools::Base do
     it { PrivacyMaskTools::Base.phone_nomber_masking("私の電話番号は　03-0000-0000　です\r\n私のFAX番号は　０３ー００００ー００００　です").should
       eql "私の電話番号は　xx-xxxx-xxxx　です\r\n私のFAX番号は　xxーxxxxーxxxx　です" }
   end
+
+  describe "#has_rfc_email?" do
+    it { PrivacyMaskTools::Base.has_rfc_email?("hogehoge@namaeksugi.net").should be_true }
+  end
+
+  describe "#has_rfc_email?" do
+    it { PrivacyMaskTools::Base.has_rfc_email?("hogehoge@namaeksugi.net").should be_true }
+  end
+
+  describe "#pick_rfc_email" do
+    subject { PrivacyMaskTools::Base.pick_rfc_email("お問い合わせは info@namakesugi.net まで") }
+    its([0]) { should eql "info@namakesugi.net" }
+  end
+
+  describe "#rfc_email_masking" do
+    subject { PrivacyMaskTools::Base.rfc_email_masking("お問い合わせは info@namakesugi.net まで") }
+    it { should eql "お問い合わせは *** まで" }
+  end
 end
 

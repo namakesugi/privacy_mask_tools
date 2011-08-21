@@ -6,6 +6,7 @@
 class PrivacyMaskTools::Base
   class << self
     include PrivacyMaskTools::PhoneMatcher
+    include PrivacyMaskTools::EmailMatcher
   end
 end
 
