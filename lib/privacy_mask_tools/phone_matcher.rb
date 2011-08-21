@@ -1,7 +1,6 @@
 # coding: utf-8
 
-# 個人情報Matcher
-# 判定・マスキング・抽出の3つの機能を保持しています
+# 電話番号判定用モジュール
 module PrivacyMaskTools::PhoneMatcher
 
   # 携帯番号 ソフト判定用正規表現
