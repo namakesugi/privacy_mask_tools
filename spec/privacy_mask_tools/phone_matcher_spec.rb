@@ -8,13 +8,20 @@ describe PrivacyMaskTools::PhoneMatcher do
   end
 
   describe "Rubyにおける日本語のテスト" do
-    it "'/[一-四]/'で一から十までの漢数字にマッチすること" do
-      "一二三四五六七八九十".scan(/[一-四]/).length.should eql 10
-    end
 
     it "'/[①-⑨]/'で①から⑨までの丸付き数値にマッチすること" do
       "①②③④⑤⑥⑦⑧⑨".scan(/[①-⑨]/).length.should eql 9
     end
+
+    subject { "①".ord }
+    it { should eql "②".ord - 1 }
+    it { should eql "③".ord - 2 }
+    it { should eql "④".ord - 3 }
+    it { should eql "⑤".ord - 4 }
+    it { should eql "⑥".ord - 5 }
+    it { should eql "⑦".ord - 6 }
+    it { should eql "⑧".ord - 7 }
+    it { should eql "⑨".ord - 8 }
   end
 
   let!(:matcher) { Obj.new }
