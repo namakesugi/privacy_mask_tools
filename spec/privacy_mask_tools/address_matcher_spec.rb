@@ -46,12 +46,6 @@ describe PrivacyMaskTools::AddressMatcher do
       it { matcher.has_address?("東京都　つくばみらい区３４ ＪＲ信濃町ビル").should be_true }
     end
 
-    context "市区村名が7文字の場合" do
-      it { matcher.has_address?("ほげほげほげほ村３４ ＪＲ信濃町ビル").should be_false }
-      it { matcher.has_address?("東京都ほげほげほげほ市３４ ＪＲ信濃町ビル").should be_false }
-      it { matcher.has_address?("東京都　ほげほげほげほ区３４ ＪＲ信濃町ビル").should be_false }
-    end
-
     context "市区村名にカタカナが含まれる場合" do
       it { matcher.has_address?("横浜市保土ヶ谷区３４ ＪＲ信濃町ビル").should be_true }
     end

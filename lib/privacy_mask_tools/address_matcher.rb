@@ -4,12 +4,12 @@
 module PrivacyMaskTools::AddressMatcher
 
   def has_address?(text)
-    !text.tapp.match(make_address_regexp).nil?
+    !text.tapp.match(make_address_regexp).tapp.nil?
   end
 
   # 住所の正規表現を生成します
   def make_address_regexp
-    Regexp.new(prefecture_regexp + '?(' + city_regexp + '|' + gun_regexp + ')').tapp
+    Regexp.new(prefecture_regexp + '?(' + city_regexp + '|' + gun_regexp + ')')
   end
 
   # 都道府県の正規表現(全県のリストだが)
@@ -24,7 +24,7 @@ module PrivacyMaskTools::AddressMatcher
   # TODO 市区村の最大値はGoogleによると6文字らしいのでそれに対応(平仮名で入力された場合は今回は除外
   # @return [String]
   def city_regexp
-    "([#{jp_char_group}]{1,6}[市区村])"
+    "([#{jp_char_group}]+[市区村])"
   end
 
   def gun_regexp
